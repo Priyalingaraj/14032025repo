@@ -23,3 +23,13 @@ resource "aws_instance" "my_ec2" {
     Name = "MyEC2Instance"
   }
 }
+
+resource "aws_s3_bucket" "my_bucket" {
+  bucket = "my-unique-bucket-name-12345"  # Make sure this bucket name is globally unique
+  acl    = "private"  # You can choose other ACLs like "public-read" if needed
+
+  tags = {
+    Name        = "MyS3Bucket"
+    Environment = "Development"
+  }
+}
